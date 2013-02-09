@@ -1,0 +1,51 @@
+body {
+  font-family: Helvetica;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  background: #DDD;
+  padding: 60px;
+}
+
+form h1 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+form select {
+  display: block;
+  font-size: 30px;
+  padding: 8px;
+  padding-right: 40px;
+  margin: 0 auto;
+}
+
+form input[type=text],
+form input[type=email],
+form input[type=password] {
+  display: block;
+  font-size: 30px;
+  margin: 0 auto;
+  margin-top: 4px;
+  left-align: left;
+}
+
+form textarea {
+  text-align: left;
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+form input[type=submit] {
+  display: block;
+  font-size: 50px;
+  margin: 0 auto;
+  margin-top: 30px;
+}

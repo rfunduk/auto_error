@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--
+This layout overrides the auto_error layout for
+the portion of the engine meant to be mounted.
+Eg, this allows you to wrap the auto_error ui
+in your own admin nav/etc.
+-->
+<html>
+  <head>
+    <title>Dummy AppErrors!</title>
+    <%= csrf_meta_tags %>
+    <%= yield :auto_error_assets %>
+  </head>
+  <body>
+    <h1 style='text-align: center;'>Dummy App!</h1>
+    <%= yield %>
+    <a href='/logout'>logout</a>
+  </body>
+</html>

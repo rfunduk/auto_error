@@ -1,0 +1,6 @@
+= form_tag error_faker_path, method: :post do
+  %h1 Make An Error
+  %select{ name: 'klass' }= options_for_select(@error_classes)
+  %input{ type: 'text', name: 'message', placeholder: "Error message..." }
+  %textarea{ rows: 4, name: 'data', placeholder: '{ "key": "value" }' }
+  %input{ type: 'submit', value: 'ERROR' }

@@ -1,0 +1,6 @@
+= form_tag sessions_path, method: 'post' do
+  - if flash[:error]
+    %p= flash[:error]
+  %input{ name: 'email', type: 'email', placeholder: 'email' }
+  %input{ name: 'password', type: 'password', placeholder: 'password' }
+  %input{ type: 'submit', value: 'login' }

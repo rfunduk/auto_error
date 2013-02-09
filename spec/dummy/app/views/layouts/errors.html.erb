@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--
+This layout overrides the default error layout
+provided by auto_error. It allows you to style your
+own exception pages (a good idea!)
+-->
+<html>
+  <head>
+    <title>Dummy Error</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

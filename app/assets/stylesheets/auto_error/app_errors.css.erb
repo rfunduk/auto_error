@@ -1,0 +1,45 @@
+table.polling tr td p.loading_message {
+  font-size: 20px;
+  margin: 25px 0;
+  text-align: center;
+}
+
+table.polling tbody pre {
+  font-size: 13px;
+  line-height: 15px;
+}
+table.polling tbody a.button {
+  display: block;
+  margin-bottom: 4px;
+}
+table.polling tfoot p.total {
+  padding: 0;
+  margin: 0;
+  line-height: 24px;
+  margin-right: 5px;
+  font-weight: normal;
+  text-align: right;
+}
+table.polling tfoot .poller a {
+  float: left;
+  margin: 0;
+  padding-top: 6px;
+}
+table.polling tfoot .poller .spinner {
+  display: none;
+  float: left;
+  width: 24px;
+  height: 24px;
+  background: transparent url(<%= image_path('auto_error/spinner.gif') %>) no-repeat center center;
+  margin-left: 12px;
+}
+
+#app_errors table tbody .backtrace {
+  width: 530px;
+  height: 250px;
+  overflow: scroll;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 15px;
+  white-space: nowrap;
+}

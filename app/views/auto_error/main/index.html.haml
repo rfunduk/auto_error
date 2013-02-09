@@ -1,0 +1,32 @@
+- content_for :auto_error_assets do
+  = stylesheet_link_tag 'auto_error/application', media: 'all'
+  = js_namespace
+  = javascript_include_tag 'auto_error/application'
+
+.row#app_errors{ data: { url: app_errors_path } }
+  .twelve.columns.centered
+    %h2 App Errors
+
+    %table.polling{ width: '100%' }
+      %thead
+        %tr
+          %th{ width: '550px' } Message
+          %th Data
+          %th Time
+          %th &nbsp;
+      %tbody
+        %tr
+          %td{ colspan: 4 }
+            %p.loading_message Loading...
+      %tfoot
+        %tr
+          %td{ colspan: 4 }
+            .row
+              .six.columns
+                .poller
+                  %a.tiny.button.radius.primary{ href: void_path } start polling
+                  .spinner
+              .six.columns
+                %p.total
+                  Total App Errors:
+                  %strong &hellip;

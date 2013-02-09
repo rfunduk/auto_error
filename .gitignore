@@ -1,0 +1,18 @@
+# Ignore bundle config
+.bundle
+
+# Ignore rdoc generated
+rdoc
+
+# Ignore binstubs
+bin
+
+# Ignore all dummy app stuff
+spec/dummy/log/*.log
+spec/dummy/tmp
+spec/dummy/public/assets
+spec/dummy/config/database.yml
+spec/dummy/db/*.sqlite3
+
+# Ignore tempfiles (more?)
+.DS_Store
