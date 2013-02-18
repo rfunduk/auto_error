@@ -1,13 +1,11 @@
-module AutoError
-  class ApplicationController < ActionController::Base
-    include AutoError::ApplicationHelper
-    helper :all
+class AutoError::ApplicationController < ActionController::Base
+  include AutoError::ApplicationHelper
+  helper :all
 
-    private
+  protected
 
-    def ensure_authenticated
-      context = AutoError::AuthContext.new(env)
-      raise AutoError::Errors::Denied unless AutoError::Config.auth_with.call(context)
-    end
+  def ensure_authenticated
+    context = AutoError::AuthContext.new(env)
+    raise AutoError::Errors::Denied unless AutoError::Config.auth_with.call(context)
   end
 end

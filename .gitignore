@@ -16,3 +16,6 @@ spec/dummy/db/*.sqlite3
 
 # Ignore tempfiles (more?)
 .DS_Store
+
+# ignore built gem
+*.gem
