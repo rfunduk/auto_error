@@ -22,7 +22,7 @@ require 'auto_error/engine'
 
 module AutoError
   def self.setup!( app_config )
-    Config.send(:set_defaults)
+    AutoError::Config.send(:set_defaults)
     app_config.action_dispatch.rescue_responses["AutoError::Errors::Denied"] = :forbidden
     app_config.action_dispatch.rescue_responses["AutoError::Errors::NotFound"] = :not_found
 
