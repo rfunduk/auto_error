@@ -21,7 +21,7 @@ class AutoError::ErrorsController < AutoError::ApplicationController
         method: env['REQUEST_METHOD'],
         ip: env['REMOTE_ADDR']
       }
-      AppError.log!( env, @exception, where, data )
+      AutoError::AppError.log!( env, @exception, where, data )
     end
 
     AutoError::Config.error_template_renderer.bind(self).( @status_code )
