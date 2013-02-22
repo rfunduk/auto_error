@@ -3,6 +3,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 
+require 'fabrication'
+Fabrication.configure do |config|
+  config.path_prefix = AutoError::Engine.root
+end
+
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 
 # Requires supporting ruby files with custom matchers and macros, etc,
