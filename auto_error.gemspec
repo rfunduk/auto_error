@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
     in your admin panel to display those errors.
   }
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
   s.add_dependency 'rails', '>= 3.2.0'
   s.add_dependency 'jquery-rails'
