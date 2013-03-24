@@ -13,7 +13,8 @@ describe 'AutoError::Config#data_handlers' do
   let!(:app_error) { Fabricate(:app_error, data: { test: 5 } ) }
 
   it 'supports custom data handlers' do
-    json = AutoError::AppErrorDecorator.new(app_error).as_json
+    context = AutoError::HelperContext.new({})
+    json = AutoError::AppErrorDecorator.new(app_error).as_json(context)
     json['data']['test'].should == '<a href="/?test=5">5</a>'
   end
 end

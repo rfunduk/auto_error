@@ -1,7 +1,14 @@
+body {
+  background: transparent;
+}
+
 table.polling tr td p.loading_message {
   font-size: 20px;
   margin: 25px 0;
   text-align: center;
+}
+table.polling tbody td small.time {
+  font-size: 12px;
 }
 
 table.polling tbody pre {
@@ -35,11 +42,30 @@ table.polling tfoot .poller .spinner {
 }
 
 #app_errors table tbody .backtrace {
-  width: 530px;
-  height: 250px;
   overflow: scroll;
   font-family: monospace;
   font-size: 13px;
   line-height: 15px;
   white-space: nowrap;
+}
+#app_errors table tbody .data {
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 15px;
+  white-space: nowrap;
+}
+
+
+.reveal-modal {
+  top: -100px;
+  width: 960px;
+  margin-left: -480px;
+  display: block; /* wat? */
+}
+  .reveal-modal h4 {
+    margin-top: 0;
+  }
+.close-reveal-modal {
+  top: 0;
+  left: 5px;
 }

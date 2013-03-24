@@ -2,10 +2,14 @@
   <strong>{{message}}</strong>
   <br/>
   <a href="javascript:void(0);" class='show_backtrace'>show backtrace...</a>
-  <div class='backtrace' style='display: none;'></div>
+  <div class='backtrace reveal-modal'>
+    <a class="close-reveal-modal">&#215;</a>
+    <h4>{{message}}</h4>
+    <pre>{{{backtrace}}}</pre>
+  </div>
 </td>
-<td><pre>{{{prettyData}}}</pre></td>
-<td>{{{timestamp}}}</td>
-<td>
+<td><div class='data'>{{{prettyData}}}</div></td>
+<td width='120px'><small class='time'>{{{timestamp}}}</small></td>
+<td width='85px'>
   <a href="javascript:void(0);" class='remove button radius tiny secondary'>resolved</a>
 </td>

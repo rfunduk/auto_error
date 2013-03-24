@@ -16,8 +16,7 @@ require 'auto_error/version'
 require 'auto_error/config'
 require 'auto_error/errors'
 require 'auto_error/context_shorthand'
-require 'auto_error/view_context'
-require 'auto_error/auth_context'
+require 'auto_error/helper_context'
 require 'auto_error/engine'
 
 module AutoError
@@ -28,7 +27,7 @@ module AutoError
 
     original_exceptions_app = app_config.exceptions_app || ActionDispatch::PublicExceptions.new(Rails.public_path)
     app_config.exceptions_app = ->(env) do
-      # puts "Handling exception for #{env['action_controller.instance'].class}"
+      puts "Handling exception for #{env['action_controller.instance'].class}"
       controller_class = env['action_controller.instance'].class
       if controller_class.nil? || AutoError.constants.any? { |c| AutoError.const_get(c) == controller_class }
         # do not log/handle exception at all if the error is actually

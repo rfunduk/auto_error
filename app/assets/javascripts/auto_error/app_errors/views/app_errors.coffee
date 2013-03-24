@@ -6,21 +6,16 @@ class AppError extends App.Views.PolledItem
   render: ->
     json = @model.toJSON()
     json.prettyData = []
+    json.backtrace = @model.get('backtrace').replace( /\n/g, "<br/>" )
     for k, v of json.data
-      json.prettyData.push "#{k}: #{v}"
-    json.prettyData = json.prettyData.join("\n")
+      json.prettyData.push "#{k}: <tt>#{v}</tt>"
+    json.prettyData = json.prettyData.join("<br/>")
     json.timestamp = moment(json.created_at).format( "YYYY-MM-DD[<br/>at] h:mma" )
     @$el.html( @template( json ) )
     return @
   toggleBacktrace: ->
     link = @$('a.show_backtrace')
-    bt = @$('.backtrace')
-    if bt.is(':visible')
-      bt.hide()
-      link.text('show backtrace...')
-    else
-      bt.html( @model.get('backtrace').replace( /\n/g, "<br/>" ) ).show()
-      link.text('hide backtrace...')
+    @$('.backtrace').reveal()
   destroy: ->
     @model.destroy()
     @remove()

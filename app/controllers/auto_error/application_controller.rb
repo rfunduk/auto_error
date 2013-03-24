@@ -1,11 +1,16 @@
-class AutoError::ApplicationController < ActionController::Base
+class AutoError::ApplicationController < ::ApplicationController
   include AutoError::ApplicationHelper
   helper :all
 
   protected
 
   def ensure_authenticated
-    context = AutoError::AuthContext.new(env)
-    raise AutoError::Errors::Denied unless AutoError::Config.auth_with.call(context)
+    @h = AutoError::HelperContext.new( env )
+
+    # raise unless the auth_with helper returns a truthy value
+    # this way we can let the user access their own auth logic
+    unless AutoError::Config.auth_with.(@h)
+      raise AutoError::Errors::Denied
+    end
   end
 end

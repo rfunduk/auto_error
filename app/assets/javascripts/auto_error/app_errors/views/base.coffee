@@ -14,7 +14,7 @@ class App.Views.PollingList extends Backbone.View
     @emptyMessage = @body.html().replace(/[\r\n]\s+/g, '')
     @collection.on 'remove', @remove, @
     @collection.on 'add', @render, @
-    @collection.fetch( update: true )
+    @collection.fetch( update: true, success: _.bind(@render, @) )
     @views = {}
   remove: ( m ) ->
     @views[m.id] = null

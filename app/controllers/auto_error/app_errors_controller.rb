@@ -3,7 +3,7 @@ class AutoError::AppErrorsController < AutoError::ApplicationController
 
   def index
     @errors = AutoError::AppError.unresolved
-    render json: @errors.map { |ae| AutoError::AppErrorDecorator.new(ae).as_json }
+    render json: @errors.map { |ae| AutoError::AppErrorDecorator.new(ae).as_json( @h ) }
   end
 
   def destroy

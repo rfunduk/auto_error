@@ -7,8 +7,8 @@ module AutoError
     mattr_accessor :auth_with
     @@auth_with = nil
 
-    mattr_accessor :auth_helpers
-    @@auth_helpers = nil
+    mattr_accessor :helpers
+    @@helpers = nil
 
     mattr_accessor :email_on_error
     @@email_on_error = nil
@@ -24,15 +24,22 @@ module AutoError
     def self.set_defaults
       self.setup do |config|
         config.error_template_renderer = ->( status ) do
-          render template: "/errors/#{status}", layout: 'errors', status: status
+          render template: "/errors/#{status}",
+                 layout: 'errors',
+                 status: status
         end
 
         config.email_on_error = []
+        ExceptionNotifier::Notifier.prepend_view_path(
+          AutoError::Engine.root.join( *%w{app views auto_error} )
+        )
 
         config.auth_with = ->( c ) { true }
-        config.auth_helpers = [ 'ApplicationHelper' ]
+        config.helpers = [ 'ApplicationHelper' ]
 
-        config.data_handlers = Hash.new { |h, k| h[k] = ->( value ) { "<strong>#{value}</strong>" } }
+        config.data_handlers = Hash.new do |h, k|
+          h[k] = ->( value ) { "<strong>#{value}</strong>" }
+        end
       end
     end
   end

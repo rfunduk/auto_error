@@ -1,5 +1,4 @@
 module AutoError
-
   # Convenience methods added to ApplicationController.
   module ContextShorthand
     def add_error_context( context )
@@ -11,5 +10,4 @@ module AutoError
   end
 
   ActionController::Base.send :include, AutoError::ContextShorthand
-
 end

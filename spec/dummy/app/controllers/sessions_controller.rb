@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     admin = Administrator.where( email: email ).first
     if admin.authenticate( password )
       session[:admin_id] = admin.id
+      Rails.logger.info "Logged in as #{admin.email}"
       redirect_to root_path
     else
       flash[:error] = "Incorrect."
