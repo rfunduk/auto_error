@@ -12,12 +12,12 @@ class AutoError::ErrorsController < AutoError::ApplicationController
     @exception       = env['action_dispatch.exception']
     @status_code     = ActionDispatch::ExceptionWrapper.new(env, @exception).status_code
     @rescue_response = ActionDispatch::ExceptionWrapper.rescue_responses[@exception.class.name]
-    @request         = @controller.request
-    @params          = @request.filtered_parameters.symbolize_keys
 
     @status_code = 500 unless [403, 404].include?(@status_code)
 
     if @status_code == 500
+      @request = @controller.request
+      @params = @request.filtered_parameters.symbolize_keys
       controller = "#{@params[:controller].camelize}Controller" rescue 'N/A'
       action = @params[:action] || 'N/A'
       where = { controller: controller, action: action }
