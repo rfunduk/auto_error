@@ -51,6 +51,7 @@ module AutoError
       options[:ignore_exceptions] ||= ExceptionNotifier.default_ignore_exceptions
       options[:email_prefix] ||= "[#{Rails.application.class.name.split('::').first} ERROR] "
       options[:exception_recipients] = AutoError::Config.email_on_error
+      options[:sender_address] = AutoError::Config.email_sender
       options[:data] = data
 
       unless Array.wrap(options[:ignore_exceptions]).include?( exception.class )

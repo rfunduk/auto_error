@@ -13,6 +13,9 @@ module AutoError
     mattr_accessor :email_on_error
     @@email_on_error = nil
 
+    mattr_accessor :email_sender
+    @@email_sender =
+
     mattr_accessor :error_template_renderer
     @@error_template_renderer = nil
 
@@ -29,6 +32,7 @@ module AutoError
                  status: status
         end
 
+        config.email_sender = %{"Notifier" notifications@example.com}
         config.email_on_error = []
         ExceptionNotifier::Notifier.prepend_view_path(
           AutoError::Engine.root.join( *%w{app views auto_error} )
