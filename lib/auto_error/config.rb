@@ -14,7 +14,7 @@ module AutoError
     @@email_on_error = nil
 
     mattr_accessor :email_sender
-    @@email_sender =
+    @@email_sender = nil
 
     mattr_accessor :error_template_renderer
     @@error_template_renderer = nil
