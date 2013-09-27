@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency 'rails', '>= 3.2.0'
+  s.add_dependency 'rails', '>= 4.0.0'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'haml'
   s.add_dependency 'draper'
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sprockets-rails'
   s.add_dependency 'coffee-rails'
   s.add_dependency 'handlebars_assets'
+  s.add_dependency 'exception_notification'
 
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'bcrypt-ruby'

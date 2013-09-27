@@ -34,9 +34,9 @@ module AutoError
 
         config.email_sender = %{"Notifier" notifications@example.com}
         config.email_on_error = []
-        ExceptionNotifier::Notifier.prepend_view_path(
-          AutoError::Engine.root.join( *%w{app views auto_error} )
-        )
+        # ExceptionNotifier::Notifier.prepend_view_path(
+        #   AutoError::Engine.root.join( *%w{app views auto_error} )
+        # )
 
         config.auth_with = ->( c ) { true }
         config.helpers = [ 'ApplicationHelper' ]
