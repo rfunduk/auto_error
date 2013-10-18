@@ -1,6 +1,6 @@
-class App.AppError extends Backbone.Model
+class AutoErrorApp.AppError extends Backbone.Model
 
-class App.AppErrors extends Backbone.Collection
-  model: App.AppError
+class AutoErrorApp.AppErrors extends Backbone.Collection
+  model: AutoErrorApp.AppError
   name: 'app errors'
-  url: -> App.rootAppErrorsPath
+  url: -> AutoErrorApp.rootAppErrorsPath

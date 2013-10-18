@@ -5,5 +5,5 @@
 //= require auto_error/backbone-0.9.10
 //= require auto_error/foundation-reveal
 //= require handlebars.runtime
-//= require_tree ../../templates/auto_error
+//= require_tree ./templates
 //= require ./app_errors

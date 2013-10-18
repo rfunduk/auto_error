@@ -1,10 +1,10 @@
 - content_for :auto_error_assets do
   = stylesheet_link_tag 'auto_error/application', media: 'all'
-  = js_namespace
+  = auto_error_js_namespace
   = javascript_include_tag 'auto_error/application'
 
 .row#app_errors{ data: { url: app_errors_path } }
-  .twelve.columns.centered
+  .small-12.columns.centered
     %h2 App Errors
 
     %table.polling{ width: '100%' }
@@ -22,11 +22,11 @@
         %tr
           %td{ colspan: 4 }
             .row
-              .six.columns
+              .small-6.columns
                 .poller
-                  %a.tiny.button.radius.primary{ href: void_path } start polling
+                  %a.tiny.button.radius.primary{ href: 'javascript:void(0);' } start polling
                   .spinner
-              .six.columns
+              .small-6.columns
                 %p.total
                   Total App Errors:
                   %strong &hellip;

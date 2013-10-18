@@ -14,8 +14,7 @@ namespacedTemplates = ->
       h[name] = func
   h
 
-_.extend( window.App, {
-  mobile: navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)
-  Templates: namespacedTemplates().auto_error
+_.extend( window.AutoErrorApp, {
+  Templates: namespacedTemplates().auto_error.templates
   Views: {}
 } )

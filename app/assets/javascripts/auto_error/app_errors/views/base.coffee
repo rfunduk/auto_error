@@ -1,9 +1,9 @@
-class App.Views.PolledItem extends Backbone.View
+class AutoErrorApp.Views.PolledItem extends Backbone.View
   tagName: 'tr'
   initialize: ->
     @model.on 'change', @render, @
 
-class App.Views.PollingList extends Backbone.View
+class AutoErrorApp.Views.PollingList extends Backbone.View
   events:
     'click .poller a': 'togglePolling'
   initialize: ->

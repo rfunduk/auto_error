@@ -1,11 +1,10 @@
 module AutoError
   module ApplicationHelper
-    def js_namespace
-      h = {} # nothing needed, really
-      javascript_tag "window.App = #{h.to_json.html_safe};"
+    def auto_error_js_namespace
+      javascript_tag "window.AutoErrorApp = {};"
     end
 
-    def void_path
+    def auto_error_void_path
       'javascript:void(0);'
     end
   end

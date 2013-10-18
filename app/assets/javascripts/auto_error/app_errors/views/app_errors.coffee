@@ -1,5 +1,5 @@
-class AppError extends App.Views.PolledItem
-  template: App.Templates.app_error
+class AppError extends AutoErrorApp.Views.PolledItem
+  template: AutoErrorApp.Templates.app_error
   events:
     'click a.show_backtrace': 'toggleBacktrace'
     'click a.remove': 'destroy'
@@ -20,14 +20,14 @@ class AppError extends App.Views.PolledItem
     @model.destroy()
     @remove()
 
-class AppErrorsList extends App.Views.PollingList
+class AppErrorsList extends AutoErrorApp.Views.PollingList
 
-class App.Views.AppErrors extends Backbone.View
+class AutoErrorApp.Views.AppErrors extends Backbone.View
   el: 'body'
   initialize: ->
     @errors = new AppErrorsList(
       el: @$('#app_errors table')
       reset: false
       viewClass: AppError
-      collectionClass: App.AppErrors
+      collectionClass: AutoErrorApp.AppErrors
     )
