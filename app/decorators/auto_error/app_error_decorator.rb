@@ -6,8 +6,8 @@ module AutoError
         next if v.nil?
         k = k.to_sym
         if k != :params || AutoError::Config.data_handlers.has_key?(k)
-          handler = AutoError::Config.data_handlers[k].bind(context)
-          processed = handler.(v)
+          handler = AutoError::Config.data_handlers[k]
+          processed = context.instance_exec( *[v], &handler )
         elsif k == :params
           processed = handle_params(v)
         end

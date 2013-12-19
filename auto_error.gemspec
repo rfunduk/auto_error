@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.summary     = "A rails engine for in-app exception handling."
   s.description = %{
-    AutoError is a mountable engine for Rails 3.2+ which provides
+    AutoError is a mountable engine for Rails 4.0+ which provides
     an 'exceptions_app' which helps you catch exceptions (showing
     the appropriate page to users) and an interface you can mount
     in your admin panel to display those errors.

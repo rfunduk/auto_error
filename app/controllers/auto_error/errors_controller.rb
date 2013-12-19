@@ -33,7 +33,8 @@ class AutoError::ErrorsController < AutoError::ApplicationController
       AutoError::AppError.log!( env, @exception, where, data )
     end
 
-    AutoError::Config.error_template_renderer.bind(self).( @status_code )
+    instance_exec( *[@status_code], &AutoError::Config.error_template_renderer )
+
   rescue => explosion
     Rails.logger.error "\nAutoError exploded while handling an exception: #{@exception.inspect}\nHere's the error: #{explosion.inspect}\n"
   end

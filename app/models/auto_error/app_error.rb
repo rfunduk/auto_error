@@ -1,7 +1,5 @@
 module AutoError
   class AppError < ActiveRecord::Base
-    attr_accessible *%w{ controller action data klass message backtrace }
-
     before_create :generate_group
 
     serialize :data
@@ -48,14 +46,15 @@ module AutoError
 
     def self.send_email!( env, exception, data )
       options = env['exception_notifier.options'] || {}
-      options[:ignore_exceptions] ||= ExceptionNotifier.default_ignore_exceptions
+      options[:ignore_exceptions] ||= ExceptionNotifier.ignored_exceptions
       options[:email_prefix] ||= "[#{Rails.application.class.name.split('::').first} ERROR] "
       options[:exception_recipients] = AutoError::Config.email_on_error
       options[:sender_address] = AutoError::Config.email_sender
       options[:data] = data
+      options[:env] = env
 
       unless Array.wrap(options[:ignore_exceptions]).include?( exception.class )
-        ExceptionNotifier::Notifier.exception_notification( env, exception, options ).deliver
+        ExceptionNotifier.notify_exception( exception, options )
         env['exception_notifier.delivered'] = true
       end
     end
