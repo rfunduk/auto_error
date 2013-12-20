@@ -1,5 +1,9 @@
 module AutoError
   class AppError < ActiveRecord::Base
+    if defined? ProtectedAttributes
+      attr_accessible *%w{ controller action data klass message backtrace }
+    end
+
     before_create :generate_group
 
     serialize :data

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'AutoError::Config#email_on_error', focus: true do
+describe 'AutoError::Config#email_on_error' do
   before( :each ) do
     AutoError::Config.setup do |config|
       config.email_on_error << 'test@example.com'

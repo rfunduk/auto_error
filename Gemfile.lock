@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    auto_error (0.0.12)
+    auto_error (0.0.14)
       coffee-rails
       draper
       exception_notification
