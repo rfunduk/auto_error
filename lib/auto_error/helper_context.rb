@@ -3,8 +3,6 @@ module AutoError
     attr_accessor :env
 
     def initialize( env )
-      @env = env
-
       AutoError::Config.helpers.each do |mod_name|
         # grab the module by name we were given
         # it is available in the 'parent' Rails.application
@@ -20,7 +18,7 @@ module AutoError
           mod.instance_methods.each do |imeth|
             alias :"#{imeth}_without_env" :"#{imeth}"
             send( :define_method, :"#{imeth}" ) do |*args|
-              method( :"#{imeth}_without_env" ).to_proc.bind( @env ).call(*args)
+              env.instance_exec( *args, &method( :"#{imeth}_without_env" ) )
             end
           end
 
@@ -30,5 +28,7 @@ module AutoError
         end
       end
     end
+
+    def default_url_options; {}; end
   end
 end
