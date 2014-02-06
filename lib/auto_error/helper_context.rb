@@ -3,6 +3,8 @@ module AutoError
     attr_accessor :env
 
     def initialize( env )
+      @env = env
+
       AutoError::Config.helpers.each do |mod_name|
         # grab the module by name we were given
         # it is available in the 'parent' Rails.application
