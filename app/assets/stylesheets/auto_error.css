@@ -1,5 +1,6 @@
 /*
  *= require_self
+ *= require auto_error/normalize
  *= require auto_error/foundation
  *= require_tree .
  */

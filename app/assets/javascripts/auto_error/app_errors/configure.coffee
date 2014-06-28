@@ -15,6 +15,6 @@ namespacedTemplates = ->
   h
 
 _.extend( window.AutoErrorApp, {
-  Templates: namespacedTemplates().auto_error.templates
+  Templates: namespacedTemplates()
   Views: {}
 } )
